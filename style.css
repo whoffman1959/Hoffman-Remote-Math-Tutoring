@@ -1,0 +1,574 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333333;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION STYLING
+   ========================================================================== */
+
+/* 1. Top Contact Bar (Lighter Navy Shade) */
+.top-bar {
+  background-color: #1a1c2e;
+  color: #ffffff;
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+.top-bar .container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 2. Main Navigation Bar (Darker Navy Shade) */
+.main-nav {
+  background-color: #0f101d;
+  padding: 16px 0;
+}
+
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 3. Navigation Links & Underline Removal */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none; /* Removes text underlines */
+  font-weight: 400;
+  font-size: 0.95rem;
+  border-bottom: none; /* Ensures no bottom border line appears */
+  transition: opacity 0.2s ease;
+}
+
+/* Keeps all links (including Active/Home) clean without a line */
+.nav-links a:hover,
+.nav-links a.active {
+  text-decoration: none;
+  border-bottom: none;
+  opacity: 0.8;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  background-image: url('Students-800x450.webp');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 80vh; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 14, 46, 0.75) 0%,
+    rgba(18, 14, 46, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 20px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #e2e8f0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 576px) {
+  .top-bar .container {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .main-nav .container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+}
+
+/* SECTION 2: STATS BAR */
+.stats-bar {
+  background-color: #ffffff;
+  padding: 40px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 20px;
+}
+
+.stat-item {
+  position: relative;
+  padding: 0 10px;
+}
+
+/* Vertical dividers between stat items */
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: #d1d5db;
+}
+
+.stat-item h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #120e2e;
+  margin-bottom: 5px;
+}
+
+.stat-item p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION 2: WHY WE ARE THE BEST */
+.why-us {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.why-us-header .subheading {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.why-us-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  line-height: 1.2;
+  color: #120e2e;
+  font-weight: 700;
+}
+
+.why-us-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE DESIGN FOR SECTION 2 */
+@media (max-width: 992px) {
+  .why-us-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .why-us-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SECTION 3: SOLUTIONS / SERVICES GRID */
+.solutions-section {
+  background-color: #120e2e;
+  color: #ffffff;
+  padding: 90px 0;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Column Styling */
+.solutions-info .subheading {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a5b4fc;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.solutions-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.solutions-info p {
+  color: #d1d5db;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+/* Button Styling */
+.btn-book {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #120e2e;
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Column: 4 Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: #120e2e;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE DESIGN FOR SECTION 3 */
+@media (max-width: 992px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SECTION 4: MEET THE OWNER */
+.meet-owner {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.meet-owner .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  text-align: center;
+  color: #120e2e;
+  margin-bottom: 50px;
+}
+
+.owner-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Owner Image Card */
+.owner-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.owner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.owner-card:hover .owner-img {
+  transform: scale(1.06);
+}
+
+.owner-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(18, 14, 46, 0.95) 0%,
+    rgba(18, 14, 46, 0) 100%
+  );
+  padding: 40px 20px 20px 20px;
+  color: #ffffff;
+  transition: opacity 0.4s ease;
+}
+
+.owner-card:hover .owner-badge {
+  opacity: 0.35;
+}
+
+.owner-badge h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.owner-badge p {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+/* Bio Content */
+.owner-bio {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.owner-bio p {
+  margin-bottom: 20px;
+}
+
+.owner-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* RESPONSIVE DESIGN FOR SECTION 4 */
+@media (max-width: 850px) {
+  .owner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* SECTION 5: TESTIMONIALS */
+.testimonials-section {
+  background-color: #120e2e;
+  color: #ffffff;
+  padding: 80px 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.testimonials-content .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  margin-bottom: 5px;
+}
+
+.testimonials-content .subtitle {
+  color: #a5b4fc;
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+}
+
+.testimonial-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+/* Custom Scrollbar for Reviews */
+.testimonial-cards::-webkit-scrollbar {
+  width: 6px;
+}
+.testimonial-cards::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.testimonial-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #a5b4fc;
+  padding: 20px;
+  border-radius: 0 6px 6px 0;
+}
+
+.testimonial-card .quote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.testimonial-card .author {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* Right Graphic Column */
+.testimonials-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graphic-img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: #0b081d;
+  color: #9ca3af;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* RESPONSIVE DESIGN FOR SECTION 5 */
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-graphic {
+    order: -1;
+  }
+}
