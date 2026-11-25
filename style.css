@@ -1,7 +1,15 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,19 +17,24 @@ body {
   color: #333333;
   line-height: 1.6;
   background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ==========================================================================
-   HEADER & NAVIGATION STYLING
-   ========================================================================== */
+/* =========================================================
+   HEADER & NAVIGATION
+   ========================================================= */
 
-/* 1. Top Contact Bar (Lighter Navy Shade) */
 .top-bar {
   background-color: #1a1c2e;
   color: #ffffff;
@@ -29,15 +42,11 @@ body {
   font-size: 0.9rem;
 }
 
-.top-bar .container {
+.top-bar-info {
   display: flex;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  gap: 30px;
 }
 
-/* 2. Main Navigation Bar (Darker Navy Shade) */
 .main-nav {
   background-color: #0f101d;
   padding: 16px 0;
@@ -47,70 +56,64 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .logo {
   color: #ffffff;
   font-size: 1.4rem;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
 }
 
-/* 3. Navigation Links & Underline Removal */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 28px;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links a {
   color: #ffffff;
-  text-decoration: none; /* Removes text underlines */
+  text-decoration: none;
   font-weight: 400;
   font-size: 0.95rem;
-  border-bottom: none; /* Ensures no bottom border line appears */
   transition: opacity 0.2s ease;
 }
 
-/* Keeps all links (including Active/Home) clean without a line */
-.nav-links a:hover,
-.nav-links a.active {
-  text-decoration: none;
-  border-bottom: none;
+.nav-links a:hover {
   opacity: 0.8;
 }
 
-/* HERO SECTION */
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
 .hero {
   position: relative;
   background-image: url('Students-800x450.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  min-height: 80vh; /* Adjust height as needed */
+
+  min-height: 80vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
   color: #ffffff;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+
   background: linear-gradient(
     180deg,
     rgba(18, 14, 46, 0.75) 0%,
     rgba(18, 14, 46, 0.85) 100%
   );
+
   z-index: 1;
 }
 
@@ -136,33 +139,10 @@ body {
   color: #e2e8f0;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 576px) {
-  .top-bar .container {
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
-    align-items: center;
-  }
+/* =========================================================
+   STATS BAR
+   ========================================================= */
 
-  .main-nav .container {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .hero-content h1 {
-    font-size: 2.25rem;
-  }
-}
-
-/* SECTION 2: STATS BAR */
 .stats-bar {
   background-color: #ffffff;
   padding: 40px 0;
@@ -181,14 +161,16 @@ body {
   padding: 0 10px;
 }
 
-/* Vertical dividers between stat items */
 .stat-item:not(:last-child)::after {
   content: '';
   position: absolute;
+
   right: 0;
   top: 15%;
+
   height: 70%;
   width: 1px;
+
   background-color: #d1d5db;
 }
 
@@ -208,7 +190,10 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* SECTION 2: WHY WE ARE THE BEST */
+/* =========================================================
+   WHY US
+   ========================================================= */
+
 .why-us {
   padding: 80px 0;
   background-color: #ffffff;
@@ -222,12 +207,13 @@ body {
 }
 
 .why-us-header .subheading {
+  display: block;
+  margin-bottom: 12px;
+
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #6b7280;
-  display: block;
-  margin-bottom: 12px;
 }
 
 .why-us-header h2 {
@@ -242,35 +228,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+
   color: #4b5563;
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
-/* RESPONSIVE DESIGN FOR SECTION 2 */
-@media (max-width: 992px) {
-  .why-us-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
+/* =========================================================
+   SERVICES
+   ========================================================= */
 
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 0;
-  }
-
-  .stat-item:nth-child(2)::after {
-    display: none;
-  }
-
-  .why-us-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* SECTION 3: SOLUTIONS / SERVICES GRID */
 .solutions-section {
   background-color: #120e2e;
   color: #ffffff;
@@ -284,14 +251,14 @@ body {
   align-items: center;
 }
 
-/* Left Column Styling */
 .solutions-info .subheading {
+  display: block;
+  margin-bottom: 12px;
+
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #a5b4fc;
-  display: block;
-  margin-bottom: 12px;
 }
 
 .solutions-info h2 {
@@ -309,26 +276,54 @@ body {
   margin-bottom: 35px;
 }
 
-/* Button Styling */
+.wyzant-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
 .btn-book {
   display: inline-block;
-  background-color: #ffffff;
-  color: #120e2e;
-  padding: 14px 28px;
+
+  background-color: #d4af37;
+  color: #1a1a1a;
+  border: 2px solid #d4af37;
+  padding: 12px 18px;
   border-radius: 4px;
+
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  font-size: 0.88rem;
+  white-space: normal;
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .btn-book:hover {
-  background-color: #f3f4f6;
+  background-color: #b8962e;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: #b8962e;
+  color: #1a1a1a;
 }
 
-/* Right Column: 4 Cards Grid */
+.btn-book-white {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.btn-book-white:hover {
+  background-color: #e8e8e8;
+  border-color: #e8e8e8;
+  color: #1a1a1a;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -338,9 +333,12 @@ body {
 .card {
   background-color: #ffffff;
   color: #333333;
+
   padding: 30px;
   border-radius: 6px;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
   transition: transform 0.3s ease;
 }
 
@@ -362,21 +360,10 @@ body {
   line-height: 1.6;
 }
 
-/* RESPONSIVE DESIGN FOR SECTION 3 */
-@media (max-width: 992px) {
-  .solutions-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
+/* =========================================================
+   MEET THE OWNER
+   ========================================================= */
 
-@media (max-width: 576px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* SECTION 4: MEET THE OWNER */
 .meet-owner {
   padding: 80px 0;
   background-color: #ffffff;
@@ -397,11 +384,12 @@ body {
   align-items: start;
 }
 
-/* Owner Image Card */
 .owner-card {
   position: relative;
+
   border-radius: 8px;
   overflow: hidden;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -410,6 +398,7 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
+
   transition: transform 0.5s ease;
 }
 
@@ -419,16 +408,20 @@ body {
 
 .owner-badge {
   position: absolute;
+
   bottom: 0;
   left: 0;
   right: 0;
+
   background: linear-gradient(
     0deg,
     rgba(18, 14, 46, 0.95) 0%,
     rgba(18, 14, 46, 0) 100%
   );
-  padding: 40px 20px 20px 20px;
+
+  padding: 40px 20px 20px;
   color: #ffffff;
+
   transition: opacity 0.4s ease;
 }
 
@@ -447,7 +440,6 @@ body {
   color: #d1d5db;
 }
 
-/* Bio Content */
 .owner-bio {
   color: #4b5563;
   font-size: 1.05rem;
@@ -462,19 +454,10 @@ body {
   margin-bottom: 0;
 }
 
-/* RESPONSIVE DESIGN FOR SECTION 4 */
-@media (max-width: 850px) {
-  .owner-grid {
-    grid-template-columns: 1fr;
-  }
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
 
-  .owner-card {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-/* SECTION 5: TESTIMONIALS */
 .testimonials-section {
   background-color: #120e2e;
   color: #ffffff;
@@ -504,15 +487,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 25px;
+
   max-height: 600px;
   overflow-y: auto;
+
   padding-right: 15px;
 }
 
-/* Custom Scrollbar for Reviews */
 .testimonial-cards::-webkit-scrollbar {
   width: 6px;
 }
+
 .testimonial-cards::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
@@ -520,9 +505,11 @@ body {
 
 .testimonial-card {
   background-color: rgba(255, 255, 255, 0.05);
+
   border-left: 3px solid #a5b4fc;
-  padding: 20px;
   border-radius: 0 6px 6px 0;
+
+  padding: 20px;
 }
 
 .testimonial-card .quote {
@@ -538,7 +525,6 @@ body {
   color: #9ca3af;
 }
 
-/* Right Graphic Column */
 .testimonials-graphic {
   display: flex;
   justify-content: center;
@@ -548,27 +534,719 @@ body {
 .graphic-img {
   width: 100%;
   max-width: 450px;
+
   border-radius: 8px;
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* FOOTER */
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-details-section {
+  background: #ffffff;
+  color: #333333;
+
+  padding: 60px 0;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.contact-container-box {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.contact-heading .subheading {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+}
+
+.contact-details-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  color: #120e2e;
+
+  margin-bottom: 12px;
+
+  text-align: center;
+}
+
+.contact-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.5fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.contact-info-card,
+.contact-form {
+  background: #f9fafb;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  padding: 32px;
+}
+
+.contact-info-card h3 {
+  font-size: 1.05rem;
+  color: #120e2e;
+  margin-bottom: 6px;
+}
+
+.contact-reference {
+  font-size: 1.05rem;
+  color: #333333;
+  font-weight: 400;
+
+  overflow-wrap: anywhere;
+}
+
+.contact-link {
+  color: #120e2e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.contact-info-card .contact-reference {
+  margin-bottom: 24px;
+}
+
+.contact-info-card .contact-reference:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.contact-form label {
+  color: #120e2e;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-form label span {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+
+  font: inherit;
+  color: #333333;
+
+  background-color: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+
+  padding: 12px 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+
+  border-color: #120e2e;
+
+  box-shadow: 0 0 0 3px rgba(18, 14, 46, 0.12);
+}
+
+.contact-submit {
+  display: inline-block;
+
+  border: 0;
+  border-radius: 4px;
+
+  background-color: #120e2e;
+  color: #ffffff;
+
+  padding: 14px 28px;
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-submit:hover {
+  background-color: #1a1640;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 12px rgba(18, 14, 46, 0.2);
+}
+
+.contact-submit:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+.form-note {
+  margin-top: 12px;
+
+  color: #6b7280;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/*
+  This is the Netlify honeypot field.
+  Real visitors never see it.
+*/
+.hidden-field {
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  height: 1px;
+  width: 1px;
+
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .site-footer {
   background-color: #0b081d;
   color: #9ca3af;
+
   text-align: center;
+
   padding: 25px 0;
+
   font-size: 0.85rem;
+
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* RESPONSIVE DESIGN FOR SECTION 5 */
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   SMALL LAPTOP / TABLET
+   --------------------------------------------------------- */
+
 @media (max-width: 992px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Navigation */
+
+  .main-nav .container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+  }
+
+  /* Hero */
+
+  .hero {
+    min-height: 65vh;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  /* Why Us */
+
+  .why-us-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .why-us-header h2 br {
+    display: none;
+  }
+
+  /* Services */
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* Owner */
+
+  .owner-grid {
+    grid-template-columns: 300px 1fr;
+    gap: 35px;
+  }
+
+  /* Testimonials */
+
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 45px;
   }
 
   .testimonials-graphic {
     order: -1;
+  }
+
+  .graphic-img {
+    max-width: 380px;
+  }
+
+  .testimonial-cards {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .why-us,
+  .meet-owner,
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .solutions-section {
+    padding: 65px 0;
+  }
+
+  /* Top bar */
+
+  .top-bar-info {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    text-align: center;
+  }
+
+  /* Logo */
+
+  .logo {
+    text-align: center;
+  }
+
+  /* Hero */
+
+  .hero {
+    min-height: 55vh;
+    background-position: center center;
+  }
+
+  .hero-content {
+    padding: 50px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  /* Stats */
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .stat-item h2 {
+    font-size: 2.35rem;
+  }
+
+  /* Why Us */
+
+  .why-us-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Headings */
+
+  .why-us-header h2,
+  .solutions-info h2,
+  .meet-owner .section-title,
+  .testimonials-content .section-title {
+    font-size: 2.25rem;
+  }
+
+  /* Owner */
+
+  .owner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-card {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* Contact */
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-card,
+  .contact-form {
+    padding: 28px;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE PHONE
+   --------------------------------------------------------- */
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Top bar */
+
+  .top-bar-info {
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.82rem;
+  }
+
+  /* Navigation */
+
+  .main-nav {
+    padding: 14px 0;
+  }
+
+  .main-nav .container {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 8px 15px;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+  }
+
+  /* Hero */
+
+  .hero {
+    min-height: 50vh;
+  }
+
+  .hero-content {
+    padding: 40px 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* Stats */
+
+  .stats-bar {
+    padding: 32px 0;
+  }
+
+  .stats-grid {
+    gap: 25px 0;
+  }
+
+  .stat-item {
+    padding: 0 8px;
+  }
+
+  .stat-item h2 {
+    font-size: 2rem;
+  }
+
+  .stat-item p {
+    font-size: 0.78rem;
+  }
+
+  /* Headings */
+
+  .why-us-header h2,
+  .solutions-info h2,
+  .meet-owner .section-title,
+  .testimonials-content .section-title,
+  .contact-details-section h2 {
+    font-size: 1.9rem;
+  }
+
+  /* Services */
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 25px 22px;
+  }
+
+  /* Owner */
+
+  .owner-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Testimonials */
+
+  .testimonial-card {
+    padding: 18px;
+  }
+
+  .graphic-img {
+    max-width: 100%;
+  }
+
+  /* Contact */
+
+  .contact-details-section {
+    padding: 50px 0;
+  }
+
+  .contact-layout {
+    gap: 22px;
+  }
+
+  .contact-info-card,
+  .contact-form {
+    padding: 24px 20px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group-full {
+    grid-column: auto;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+
+  .contact-reference {
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer */
+
+  .site-footer {
+    padding: 22px 15px;
+  }
+}
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 400px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Top bar */
+
+  .top-bar-info {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .top-bar-info span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Hero */
+
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  /* Navigation */
+
+  .nav-links {
+    gap: 6px 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  /* Stats */
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0;
+  }
+
+  .stat-item {
+    min-width: 0;
+    padding: 0 6px;
+  }
+
+  .stat-item h2 {
+    font-size: 1.8rem;
+  }
+
+  .stat-item p {
+    font-size: 0.68rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    padding: 0 2px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* Services */
+
+  .solutions-section {
+    padding: 50px 0;
+  }
+
+  .solutions-info h2 {
+    font-size: 1.8rem;
+  }
+
+  .solutions-info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .btn-book {
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  /* Contact */
+
+  .contact-info-card,
+  .contact-form {
+    padding: 20px 16px;
+  }
+
+  .contact-heading p {
+    font-size: 0.95rem;
   }
 }
